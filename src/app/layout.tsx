@@ -5,14 +5,18 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { getSiteConfiguration } from "@/lib/contentstack";
 
+// display:swap lets text render immediately with system font fallback while
+// Geist loads — eliminates LCP discovery delay and render-blocking impact.
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -56,7 +60,9 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en" className="scroll-smooth">
+    // suppressHydrationWarning prevents React hydration error #418 caused by
+    // the Navigation component toggling dark/light class on the html element.
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="https://www.contentstack.com/favicon.ico" />
       </head>
