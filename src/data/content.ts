@@ -1,4 +1,4 @@
-// Static content data for the portfolio site
+// Static fallback content — used when Contentstack CMS is unavailable
 
 export interface HomePageContent {
   title: string;
@@ -52,165 +52,121 @@ export interface PortfolioProject {
   updated_at: string;
 }
 
-// Static data
 export const homePageContent: HomePageContent = {
-  title: "Welcome to My Bio Site",
-  hero_headline: "Full-Stack Developer & Digital Creator",
-  hero_subtext: "Building amazing web experiences with modern technologies",
-  about_section: "I'm a passionate full-stack developer with expertise in React, Node.js, and cloud technologies. I love creating innovative solutions that make a real impact.",
-  skills: ["JavaScript", "React", "Node.js", "TypeScript", "Python", "AWS", "Next.js", "Tailwind CSS"],
-  contact_email: "hello@example.com"
+  title: "Deanius",
+  hero_headline: "VP of Product at Contentstack",
+  hero_subtext: "Building the future of composable digital experiences.",
+  about_section:
+    "I'm Dean Haddock, VP of Product at Contentstack. I lead product strategy and execution for the world's leading composable CMS platform. When I'm not shipping product, I'm in the water — surfing is where I find my clearest thinking.",
+  skills: [
+    "Product Strategy",
+    "Composable Architecture",
+    "Headless CMS",
+    "Go-to-Market",
+    "Developer Experience",
+    "TypeScript",
+    "Next.js",
+    "React",
+  ],
+  contact_email: "dean.haddock@contentstack.com",
 };
 
 export const blogPosts: BlogPost[] = [
   {
-    uid: "getting-started-headless-cms",
-    title: "Getting Started with Headless CMS",
-    slug: "getting-started-headless-cms",
-    excerpt: "Learn how headless CMS architecture can revolutionize your content management strategy.",
-    content: "In today's fast-paced digital world, traditional monolithic CMS platforms are being challenged by a new approach: headless CMS. This architecture separates the content management backend from the presentation layer, offering unprecedented flexibility and performance benefits.",
-    author: "CS",
-    published_date: "2024-01-15T10:00:00.000Z",
-    blog_tags: ["CMS", "Architecture", "Web Development"],
-    created_at: "2024-01-15T10:00:00.000Z",
-    updated_at: "2024-01-15T10:00:00.000Z"
+    uid: "composable-future",
+    title: "Why Composable Architecture Wins",
+    slug: "composable-future",
+    excerpt:
+      "Composable architecture isn't a trend — it's the natural evolution of how enterprises build digital experiences that last.",
+    content:
+      "I've spent years watching monolithic platforms slow teams down. Composable architecture — headless CMS, API-first services, best-of-breed tools assembled deliberately — gives product and engineering teams back their velocity. At Contentstack we're building the infrastructure that makes composable feel effortless.",
+    author: "Deanius",
+    published_date: "2026-05-01T10:00:00.000Z",
+    blog_tags: ["Composable", "CMS", "Product Strategy"],
+    created_at: "2026-05-01T10:00:00.000Z",
+    updated_at: "2026-05-01T10:00:00.000Z",
   },
   {
-    uid: "building-scalable-react-applications",
-    title: "Building Scalable React Applications",
-    slug: "building-scalable-react-applications",
-    excerpt: "Best practices and patterns for creating React applications that can grow with your business needs.",
-    content: "Scalability in React applications isn't just about handling more users—it's about creating code that's maintainable, testable, and adaptable to changing requirements. Here are the key patterns and practices I've learned.",
-    author: "CS",
-    published_date: "2024-01-10T14:30:00.000Z",
-    blog_tags: ["React", "JavaScript", "Scalability", "Best Practices"],
-    created_at: "2024-01-10T14:30:00.000Z",
-    updated_at: "2024-01-10T14:30:00.000Z"
+    uid: "product-surfing",
+    title: "What Surfing Taught Me About Product Management",
+    slug: "product-surfing",
+    excerpt:
+      "Reading conditions, timing your entry, committing fully — the parallels between riding waves and shipping product are real.",
+    content:
+      "A good product manager, like a good surfer, learns to read the environment before acting. You can't force a wave and you can't force market adoption. You position, you wait for the right signal, and then you commit completely. Half-paddling gets you nowhere.",
+    author: "Deanius",
+    published_date: "2026-04-10T09:00:00.000Z",
+    blog_tags: ["Product Management", "Surfing", "Leadership"],
+    created_at: "2026-04-10T09:00:00.000Z",
+    updated_at: "2026-04-10T09:00:00.000Z",
   },
-  {
-    uid: "modern-web-development-tools",
-    title: "Modern Web Development Tools for 2024",
-    slug: "modern-web-development-tools",
-    excerpt: "A comprehensive overview of the latest tools and technologies that are shaping web development.",
-    content: "The web development landscape continues to evolve rapidly. Here's my take on the most impactful tools and technologies you should consider for your next project.",
-    author: "CS",
-    published_date: "2024-01-05T09:00:00.000Z",
-    blog_tags: ["Tools", "Web Development", "Technology"],
-    created_at: "2024-01-05T09:00:00.000Z",
-    updated_at: "2024-01-05T09:00:00.000Z"
-  }
 ];
 
 export const workExperiences: WorkExperience[] = [
   {
-    uid: "senior-developer-techcorp",
-    title: "Senior Full-Stack Developer at TechCorp",
-    company: "TechCorp Solutions",
-    position: "Senior Full-Stack Developer",
-    start_date: "2022-03-01T00:00:00.000Z",
+    uid: "vp-product-contentstack",
+    title: "VP of Product at Contentstack",
+    company: "Contentstack",
+    position: "VP of Product",
+    start_date: "2022-01-01T00:00:00.000Z",
     current_position: true,
-    description: "Leading the development of scalable web applications using React, Node.js, and AWS. Responsible for architectural decisions, code reviews, and mentoring junior developers.",
-    technologies: ["React", "Node.js", "AWS", "PostgreSQL", "TypeScript", "Docker"],
-    created_at: "2022-03-01T00:00:00.000Z",
-    updated_at: "2024-01-15T00:00:00.000Z"
+    description:
+      "Leading product vision, strategy, and roadmap for Contentstack — the world's leading composable CMS. Responsible for Launch (edge hosting), Platform (CMS core), and developer ecosystem products.",
+    technologies: [
+      "Next.js",
+      "Contentstack",
+      "Composable Architecture",
+      "Product Strategy",
+      "APIs",
+    ],
+    created_at: "2022-01-01T00:00:00.000Z",
+    updated_at: "2026-06-12T00:00:00.000Z",
   },
-  {
-    uid: "frontend-developer-startupxyz",
-    title: "Frontend Developer at StartupXYZ",
-    company: "StartupXYZ",
-    position: "Frontend Developer",
-    start_date: "2020-06-01T00:00:00.000Z",
-    end_date: "2022-02-28T00:00:00.000Z",
-    current_position: false,
-    description: "Built responsive web applications and improved user experience across multiple products. Collaborated with design and backend teams to deliver high-quality features.",
-    technologies: ["Vue.js", "Express.js", "MongoDB", "SASS", "Webpack"],
-    created_at: "2020-06-01T00:00:00.000Z",
-    updated_at: "2022-02-28T00:00:00.000Z"
-  },
-  {
-    uid: "junior-developer-webstudio",
-    title: "Junior Developer at WebStudio",
-    company: "WebStudio",
-    position: "Junior Web Developer",
-    start_date: "2019-01-01T00:00:00.000Z",
-    end_date: "2020-05-31T00:00:00.000Z",
-    current_position: false,
-    description: "Started my professional journey building websites and learning modern web development practices. Gained experience in both frontend and backend development.",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    created_at: "2019-01-01T00:00:00.000Z",
-    updated_at: "2020-05-31T00:00:00.000Z"
-  }
 ];
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    uid: "ecommerce-platform",
-    title: "E-Commerce Platform",
-    slug: "ecommerce-platform",
-    description: "A full-featured e-commerce platform built with Next.js and Stripe integration. Features include product catalog, shopping cart, checkout, and admin dashboard.",
-    technologies: ["Next.js", "React", "Stripe", "PostgreSQL", "Tailwind CSS"],
-    live_url: "https://ecommerce-demo.example.com",
-    github_url: "https://github.com/your-username/ecommerce-platform",
-    project_type: "Web Application",
+    uid: "contentstack-launch",
+    title: "Contentstack Launch",
+    slug: "contentstack-launch",
+    description:
+      "Edge-native hosting for Next.js and composable frontends, built natively into the Contentstack platform. Eliminates infrastructure complexity for content-driven teams.",
+    technologies: ["Next.js", "Edge Runtime", "Contentstack", "TypeScript"],
+    live_url: "https://www.contentstack.com/products/launch",
+    project_type: "Platform Product",
     featured: true,
-    created_at: "2023-12-01T00:00:00.000Z",
-    updated_at: "2024-01-15T00:00:00.000Z"
-  },
-  {
-    uid: "task-management-app",
-    title: "Task Management App",
-    slug: "task-management-app",
-    description: "A collaborative task management application with real-time updates using Socket.io. Features include task boards, team collaboration, and progress tracking.",
-    technologies: ["React", "Socket.io", "Express.js", "MongoDB", "Material-UI"],
-    live_url: "https://taskapp-demo.example.com",
-    github_url: "https://github.com/your-username/task-management",
-    project_type: "Web Application",
-    featured: true,
-    created_at: "2023-10-01T00:00:00.000Z",
-    updated_at: "2023-12-15T00:00:00.000Z"
-  },
-  {
-    uid: "weather-dashboard",
-    title: "Weather Dashboard",
-    slug: "weather-dashboard",
-    description: "A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics. Built with modern React patterns.",
-    technologies: ["React", "TypeScript", "Chart.js", "OpenWeatherMap API"],
-    live_url: "https://weather-dashboard.example.com",
-    github_url: "https://github.com/your-username/weather-dashboard",
-    project_type: "Dashboard",
-    featured: false,
-    created_at: "2023-08-01T00:00:00.000Z",
-    updated_at: "2023-09-15T00:00:00.000Z"
-  },
-  {
-    uid: "blog-platform",
-    title: "Personal Blog Platform",
-    slug: "blog-platform",
-    description: "A custom-built blog platform with markdown support, syntax highlighting, and SEO optimization. Features a clean, minimalist design.",
-    technologies: ["Next.js", "MDX", "Prisma", "SQLite"],
-    live_url: "https://blog.example.com",
-    github_url: "https://github.com/your-username/blog-platform",
-    project_type: "Blog",
-    featured: false,
     created_at: "2023-06-01T00:00:00.000Z",
-    updated_at: "2023-07-15T00:00:00.000Z"
-  }
+    updated_at: "2026-06-12T00:00:00.000Z",
+  },
+  {
+    uid: "bio-site",
+    title: "Bio Site Starter",
+    slug: "bio-site",
+    description:
+      "Open-source personal portfolio starter powered by Contentstack CMS and deployed on Contentstack Launch. Demonstrates composable architecture end-to-end.",
+    technologies: ["Next.js", "Contentstack", "Tailwind CSS", "TypeScript"],
+    live_url: "https://my-bio-site.contentstackapps.com",
+    github_url: "https://github.com/dean-cstk/cs-bio",
+    project_type: "Open Source",
+    featured: true,
+    created_at: "2026-01-01T00:00:00.000Z",
+    updated_at: "2026-06-12T00:00:00.000Z",
+  },
 ];
 
-// Default site configuration for fallback
 export const defaultSiteConfig = {
   title: "Site Configuration",
-  site_name: "My Personal Website",
-  site_subtitle: "Welcome to my digital space",
-  owner_name: "Your Name",
-  owner_email: "hello@example.com",
-  bio: "I'm a passionate creator building amazing things. Welcome to my personal website where I share my work, thoughts, and journey.",
-  years_experience: 3,
+  site_name: "Deanius",
+  site_subtitle: "VP of Product at Contentstack",
+  owner_name: "Dean Haddock",
+  owner_email: "dean.haddock@contentstack.com",
+  bio: "VP of Product at Contentstack. Building composable digital experiences and occasionally chasing waves.",
+  years_experience: 10,
   work_location: "Remote",
-  projects_completed: 50,
-  technologies_count: 10,
+  projects_completed: 20,
+  technologies_count: 15,
   time_zone: "PST",
-  github_url: "https://github.com/username",
-  linkedin_url: "https://linkedin.com/in/username",
-  enable_mandala_background: true
+  github_url: "https://github.com/dean-cstk",
+  linkedin_url: "https://linkedin.com/in/deanhaddock",
+  enable_mandala_background: true,
 };
