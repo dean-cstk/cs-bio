@@ -1,0 +1,181 @@
+'use client';
+
+import { Github, Linkedin, Mail } from 'lucide-react';
+import { SiteConfiguration } from '@/lib/contentstack';
+import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
+
+// Dynamically import FooterMandala to avoid SSR issues
+const FooterMandala = dynamic(() => import('./FooterMandala'), {
+  ssr: false,
+  loading: () => null
+});
+
+interface FooterProps {
+  siteConfig?: SiteConfiguration | null;
+}
+
+const Footer = ({ siteConfig }: FooterProps) => {
+  const pathname = usePathname();
+
+  // Smart navigation function for footer links
+  const navigateToSection = (sectionId: string) => {
+    if (pathname === '/') {
+      // If on home page, scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // If on different page, navigate to home with section
+      window.location.href = `/#${sectionId}`;
+    }
+  };
+
+  // Create social links array with dynamic URLs from siteConfig
+  const socialLinks = [
+    {
+      href: `mailto:${siteConfig?.owner_email || 'hello@example.com'}`,
+      icon: Mail,
+      label: 'Email',
+      show: true, // Always show email
+    },
+    {
+      href: siteConfig?.github_url || '',
+      icon: Github,
+      label: 'GitHub',
+      show: !!siteConfig?.github_url, // Only show if URL exists
+    },
+    {
+      href: siteConfig?.linkedin_url || '',
+      icon: Linkedin,
+      label: 'LinkedIn',
+      show: !!siteConfig?.linkedin_url, // Only show if URL exists
+    },
+  ].filter(link => link.show); // Filter out links that shouldn't be shown
+
+  return (
+    <footer className="bg-muted border-t border-border relative overflow-hidden">
+      {/* Footer Mandala Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <FooterMandala opacity={0.6} />
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Brand */}
+          <div>
+            <h3 className="font-bold text-lg mb-4 gradient-text-1">{siteConfig?.site_name || 'Personal Website'}</h3>
+            <p className="text-muted-foreground mb-4">
+              {siteConfig?.bio || 'Just another vibe coder looking for a token.'}
+            </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-background hover:bg-accent hover:text-accent-foreground transition-colors cursor-pointer"
+                  aria-label={link.label}
+                >
+                  <link.icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold mb-4 gradient-text-2">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <button 
+                  onClick={() => navigateToSection('about')}
+                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-left"
+                >
+                  About
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigateToSection('work')}
+                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-left"
+                >
+                  Experience
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigateToSection('portfolio')}
+                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-left"
+                >
+                  Portfolio
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigateToSection('blog')}
+                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-left"
+                >
+                  Blog
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold mb-4 gradient-text-3">Get In Touch</h4>
+            <p className="text-muted-foreground mb-2">
+              Interested in working together?
+            </p>
+            <button
+              onClick={() => navigateToSection('contact')}
+              className="inline-flex items-center px-4 py-2 gradient-1 text-white rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+            >
+              Let&apos;s Connect
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-muted-foreground text-sm">
+            © {new Date().getFullYear()} {siteConfig?.site_name || 'Personal Website'}. All rights reserved.
+          </p>
+          <p className="text-muted-foreground text-sm mt-2 sm:mt-0">
+            Built with{' '}
+            <a 
+              href="https://github.com/systemsconsciousness/cs-bio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors"
+            >
+              cs-bio
+            </a>
+            {' '}&amp;{' '}
+            <a 
+              href="https://contentstack.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors"
+            >
+              Contentstack
+            </a>
+            {' '}•{' '}
+            <a 
+              href="https://www.contentstack.com/platforms/launch" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors"
+            >
+              Powered by Launch
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
